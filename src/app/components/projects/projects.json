@@ -1,0 +1,42 @@
+{
+    "projects": [
+        {
+            "title": "Organo",
+            "description": "Organo is a React-based web application designed to help users create, manage, and organize teams effectively. Originally meant for soccer teams, but useful for everybody. Built with Vite for fast development and modern tooling, this project allows seamless collaboration and smooth UI performance.",
+            "image": "/images/organo.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#6278f7]/30",
+            "link": "https://organo-rouge-pi.vercel.app/"
+        },
+        
+        {
+            "title": "ShortUrl",
+            "description": "ShortUrl is a URL shortening service that allows users to create short links for long URLs. Built with React and Node.js, it provides a simple interface for generating and managing shortened URLs, making it easier to share links across various platforms.",
+            "image": "/images/shorturl.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-purple-600/30",
+            "link": "https://short-url-one-zeta.vercel.app/"
+        },
+        
+        {
+            "title": "FormGuardian",
+            "description": "FormGuardian is a Chrome extension that helps users stay safe online by detecting insecure forms or those requesting sensitive data. Built to be lightweight and user-friendly, it runs in the background to provide real-time alerts and peace of mind while browsing.",
+            "image":"/images/formguardian.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#ff7d05]/30",
+            "link":"https://form-guardian.vercel.app/"
+        },
+        
+        {
+            "title": "Galvao Tatto Art",
+            "description": " Matheus Galvão is a tattoo artist specializing in black and gray realism. His portfolio website provides details on his work, studio location in Domingos Martins, Espírito Santo, and operating hours. You can also find links to his social media for appointments and to view his work.",
+            "image":"/images/galvaotatto.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#555555]/30",
+            "link": "https://matheusgalvao-2lex47qvx-vinicius-bergers-projects-7a24d8a1.vercel.app/"
+        },
+        
+        {
+            "title": "Volunteering embaixadores do rei",
+            "description":"Developed a responsive web app in a team setting to track attendance for church educational classes. Introduced a unique Bible verse check-in feature, implemented secure authentication with Supabase/PostgreSQL, and built tools to monitor participation trends and class progress.",
+            "image":"/images/volunteering.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#0b2241]/30"
+        }
+    ]
+}
