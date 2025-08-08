@@ -36,7 +36,8 @@
             "title": "Volunteering embaixadores do rei",
             "description":"Developed a responsive web app in a team setting to track attendance for church educational classes. Introduced a unique Bible verse check-in feature, implemented secure authentication with Supabase/PostgreSQL, and built tools to monitor participation trends and class progress.",
             "image":"/images/volunteering.png",
-            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#0b2241]/30"
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#0b2241]/30",
+            "link":"https://embaixadoresdorei-one.vercel.app/"
         }
     ]
 }
