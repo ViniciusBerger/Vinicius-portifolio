@@ -27,7 +27,7 @@ const Contact = ()=> {
     return (
         <section id="contact" className="bg-[#121212] py-16 px-6">
             <div className="max-w-6xl mx-auto text-center">
-                <h2 className="text-xl font-bold text-white mb-16"><code>CONTACT</code></h2>
+                <h2 className="text-xl font-bold text-white mb-17"><code>CONTACT</code></h2>
                 
                 <div className="grid gap-8 grid-cols-1 md:grid-cols-3">
           
