@@ -45,7 +45,7 @@
             "description": "Next stop API is an API for a social outing app. Develped in TypeScript, our team decided to use a layered hybrid architecture, using firebase for third party authentication and mongodb for data persistence. All third party services are abstracted into our API, contributing to a better maintainability",
             "image":"/images/next-stop.png",
             "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#8368F3]/30",
-            "link":"https://github.com/ViniciusBerger/next-stop"
+            "link":"https://github.com/ViniciusBerger/next-stop/tree/main/apps/backend"
         }
     ]
 }
