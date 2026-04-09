@@ -46,6 +46,13 @@
             "image":"/images/next-stop.png",
             "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#8368F3]/30",
             "link":"https://github.com/ViniciusBerger/next-stop/tree/main/apps/backend"
+        }, 
+        {
+            "title": "RentalFlow",
+            "description": "RentalFlow is a short-term rental management web application built to work across different platforms and screen sizes. Our team used hexagonal architecture to keep the business logic isolated and decoupled from the rest of the application. We used PostgreSQL and Drizzle ORM for data persistence.",
+            "image":"/images/rentalFlow.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#8368F3]/30",
+            "link":"https://github.com/ViniciusBerger/RentalFlow"
         }
     ]
 }
