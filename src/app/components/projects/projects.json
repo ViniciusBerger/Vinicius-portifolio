@@ -9,14 +9,6 @@
         },
         
         {
-            "title": "ShortUrl",
-            "description": "ShortUrl is a URL shortening service that allows users to create short links for long URLs. Built with React and Node.js, it provides a simple interface for generating and managing shortened URLs, making it easier to share links across various platforms.",
-            "image":"/images/short.png",
-            "shadow": "shadow-lg hover:shadow-xl hover:shadow-purple-600/30",
-            "link": "https://short-url-one-zeta.vercel.app/"
-        },
-        
-        {
             "title": "FormGuardian",
             "description": "FormGuardian is a Chrome extension that helps users stay safe online by detecting insecure forms or those requesting sensitive data. Built to be lightweight and user-friendly, it runs in the background to provide real-time alerts and peace of mind while browsing.",
             "image":"/images/formguardian.png",
