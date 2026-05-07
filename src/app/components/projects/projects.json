@@ -1,19 +1,18 @@
 {
     "projects": [
         {
-            "title": "Organo",
-            "description": "Organo is a React-based web application designed to help users create, manage, and organize teams effectively. Originally meant for soccer teams, but useful for everybody. Built with Vite for fast development and modern tooling, this project allows seamless collaboration and smooth UI performance.",
-            "image": "/images/organo.png",
-            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#6278f7]/30",
-            "link": "https://organo-rouge-pi.vercel.app/"
-        },
-        
-        {
             "title": "FormGuardian",
             "description": "FormGuardian is a Chrome extension that helps users stay safe online by detecting insecure forms or those requesting sensitive data. Built to be lightweight and user-friendly, it runs in the background to provide real-time alerts and peace of mind while browsing.",
             "image":"/images/formguardian.png",
             "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#ff7d05]/30",
             "link":"https://form-guardian.vercel.app/"
+        },
+        {
+            "title": "IMOB",
+            "description": "IMOB is a full property management system built to support real estate operations end to end. The platform covers property management, tenant and guarantor records, lease and invoice control, maintenance workflows, financial reporting, and economic index integration. The backend was structured using a repository-based architecture to ensure clear separation of concerns and long-term maintainability, with NestJS, PostgreSQL, and Prisma, while the frontend was built with React and TypeScript.",
+            "image": "/images/imob.jpg",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#4F46E5]/30",
+            "link": "https://github.com/your-username/imob"
         },
         
         {
