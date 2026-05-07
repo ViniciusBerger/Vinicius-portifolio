@@ -29,7 +29,7 @@ const Main = ()=> {
             >
                 <p className="text-sm lg:text-md"><code>HI THERE 👋 I'M</code></p>
                 <h1 className="text-3xl lg:text-5xl font-bold leading-tight mt-2">
-                  <code>Vinicius Berger</code>
+                  <code>Vin Berger</code>
                 </h1>
                 <p className="text-cyan-400 mt-2">
                   <code>FULLSTACK DEVELOPER </code>👩🏽‍💻
