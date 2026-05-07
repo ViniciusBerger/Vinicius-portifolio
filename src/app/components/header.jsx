@@ -13,7 +13,7 @@ const Header = () => {
           alt="Vinicius Berger dev Logo"
           className="h-8 w-8 lg:h-auto lg:w-auto"
         />
-        <code>VINICIUS BERGER</code>
+        <code>VIN BERGER</code>
       </h1>
 
       <nav className="mt-0 lg:mt-4">
