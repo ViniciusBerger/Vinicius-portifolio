@@ -12,7 +12,7 @@
             "description": "IMOB is a full property management system built to support real estate operations end to end. The platform covers property management, tenant and guarantor records, lease and invoice control, maintenance workflows, financial reporting, and economic index integration. The backend was structured using a repository-based architecture to ensure clear separation of concerns and long-term maintainability, with NestJS, PostgreSQL, and Prisma, while the frontend was built with React and TypeScript.",
             "image": "/images/imob.jpg",
             "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#4F46E5]/30",
-            "link": "https://github.com/your-username/imob"
+            "link": "https://github.com/ViniciusBerger/imob"
         },
         
         {
