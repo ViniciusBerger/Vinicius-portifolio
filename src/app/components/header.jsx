@@ -94,7 +94,7 @@ const Header = () => {
           />
 
           <code className="text-sm font-bold tracking-widest sm:text-base">
-            VIN BERGER
+            VINI BERGER
           </code>
         </a>
 
