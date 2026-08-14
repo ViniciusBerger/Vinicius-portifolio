@@ -24,11 +24,11 @@
         },
         
         {
-            "title": "Volunteering embaixadores do rei",
-            "description":"Developed a responsive web app in a team setting to track attendance for church educational classes. Introduced a unique Bible verse check-in feature, implemented secure authentication with Supabase/PostgreSQL, and built tools to monitor participation trends and class progress.",
-            "image":"/images/volunteering.png",
-            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#0b2241]/30",
-            "link":"https://embaixadoresdorei-one.vercel.app/"
+            "title": "FIXD Bike",
+            "description": "FIXD is a mobile bicycle repair platform designed to make bike maintenance faster and more convenient. Customers can request professional service directly at their location, choose the service they need, schedule an appointment, and track their request through a simple and modern online experience.",
+            "image": "/images/fixd.png",
+            "shadow": "shadow-lg hover:shadow-xl hover:shadow-[#31E981]/30",
+            "link": "https://www.fixdbike.com/"
         },
         
         {
