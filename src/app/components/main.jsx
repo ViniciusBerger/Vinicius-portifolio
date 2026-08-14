@@ -281,7 +281,7 @@ const Main = () => {
           </p>
 
           <h1 className="mt-4 text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            <code>Vin Berger</code>
+            <code>Vini Berger</code>
           </h1>
 
           <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-cyan-400 sm:text-base">
@@ -360,7 +360,7 @@ const Main = () => {
 
           <img
             src={hoveredAvatar ? "/images/avatar_hover.png" : "/images/avatar.png"}
-            alt="3D avatar of Vin Berger working behind a laptop."
+            alt="3D avatar of Vini Berger working behind a laptop."
             onMouseEnter={() => setHoveredAvatar(true)}
             onMouseLeave={() => setHoveredAvatar(false)}
             className="
