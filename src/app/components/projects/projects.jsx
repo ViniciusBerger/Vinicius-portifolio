@@ -51,14 +51,20 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="project-actions">
-              <a className="button button-primary" href={fixd.href} target="_blank" rel="noreferrer">
-                View live site <FiArrowUpRight />
-              </a>
-              <a className="text-link" href={fixd.secondaryHref} target="_blank" rel="noreferrer">
-                View GitHub <FiArrowUpRight />
-              </a>
-            </div>
+            {(fixd.href || fixd.secondaryHref) && (
+              <div className="project-actions">
+                {fixd.href && (
+                  <a className="button button-primary" href={fixd.href} target="_blank" rel="noreferrer">
+                    View project <FiArrowUpRight />
+                  </a>
+                )}
+                {fixd.secondaryHref && (
+                  <a className="text-link" href={fixd.secondaryHref} target="_blank" rel="noreferrer">
+                    View GitHub <FiArrowUpRight />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           <ProjectImage project={fixd} featured />
