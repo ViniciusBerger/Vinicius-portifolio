@@ -1,5 +1,7 @@
 const { test, expect } = require("@playwright/test");
 
+test.use({ launchOptions: { executablePath: process.env.CHROME_BIN } });
+
 const viewports = [
   { name: "small-mobile", width: 360, height: 800 },
   { name: "iphone-mobile", width: 390, height: 844 },
