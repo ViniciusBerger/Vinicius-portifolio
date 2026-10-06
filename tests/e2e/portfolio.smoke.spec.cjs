@@ -41,7 +41,7 @@ for (const viewport of viewports) {
         if (message.type() === "error") consoleErrors.push(message.text());
       });
 
-      await page.goto("/", { waitUntil: "networkidle" });
+      await page.goto("http://127.0.0.1:3000/", { waitUntil: "networkidle" });
 
       await expect(page.locator(".site-header")).toBeVisible();
       await expect(page.locator("#home .hero-copy")).toBeVisible();
@@ -157,7 +157,7 @@ test.describe("reduced motion", () => {
   test.use({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
 
   test("disables decorative motion without hiding content", async ({ page }) => {
-    await page.goto("/", { waitUntil: "networkidle" });
+    await page.goto("http://127.0.0.1:3000/", { waitUntil: "networkidle" });
     await expect(page.locator("#home")).toBeVisible();
     await expect(page.locator(".project-showcase").first()).toBeAttached();
 
