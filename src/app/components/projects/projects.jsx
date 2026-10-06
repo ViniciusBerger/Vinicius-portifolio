@@ -1,99 +1,103 @@
+"use client";
+
 import Image from "next/image";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiPlay } from "react-icons/fi";
 import { featuredProjects, otherProjects } from "../../data/portfolio";
 
-function ProjectImage({ project, featured = false }) {
+function MotionPreview({ project, index }) {
   return (
-    <div className={featured ? "featured-project-image" : "compact-project-image"}>
-      <Image
-        src={project.image}
-        alt={`${project.title} interface`}
-        fill
-        sizes={featured ? "(max-width: 900px) 92vw, 52vw" : "(max-width: 900px) 92vw, 38vw"}
-      />
+    <div className={`project-reel project-reel--${project.motion}`}>
+      <div className="project-reel-topbar">
+        <span /><span /><span />
+        <small>{project.sceneLabel}</small>
+      </div>
+      <div className="project-reel-stage">
+        {project.video ? (
+          <video
+            className="project-reel-video"
+            src={project.video}
+            poster={project.image}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        ) : (
+          <Image
+            className="project-reel-image"
+            src={project.image}
+            alt={`${project.title} interface preview`}
+            fill
+            sizes="(max-width: 920px) 94vw, 58vw"
+            priority={index === 0}
+          />
+        )}
+        <div className="project-reel-scan" aria-hidden="true" />
+        <div className="project-reel-cursor" aria-hidden="true" />
+        <div className="project-reel-live"><FiPlay aria-hidden="true" /> live preview</div>
+      </div>
+      <div className="project-reel-progress"><span /></div>
     </div>
   );
 }
 
 export default function Projects() {
-  const [fixd, ...secondary] = featuredProjects;
-
   return (
     <section id="projects" className="section section-projects">
       <div className="shell">
         <div className="section-heading section-heading--split">
           <div>
-            <p className="eyebrow">FEATURED WORK</p>
-            <h2>Building real products<br />for real users.</h2>
+            <p className="eyebrow">SELECTED BUILDS</p>
+            <h2>Projects that feel<br />alive.</h2>
           </div>
           <p>
-            A selection of production systems and larger applications where I worked across architecture, APIs, interfaces, integrations, testing, and deployment.
+            Product work is easier to understand when you can see it in motion. These previews animate the interfaces now and are ready to use real screen recordings when they are added later.
           </p>
         </div>
 
-        <article className="featured-project">
-          <div className="featured-project-copy">
-            <div className="project-index">{fixd.number}</div>
-            <h3>{fixd.title}</h3>
-            <p className="project-subtitle">{fixd.subtitle}</p>
-            <p className="project-description">{fixd.description}</p>
-
-            <div className="technology-list">
-              {fixd.technologies.map((technology) => <span key={technology}>{technology}</span>)}
-            </div>
-
-            <div className="metric-grid">
-              {fixd.metrics.map((metric) => (
-                <div className="metric" key={metric.label}>
-                  <strong>{metric.value}</strong>
-                  <span>{metric.label}</span>
+        <div className="project-reel-list">
+          {featuredProjects.map((project, index) => (
+            <article className={`project-showcase ${index % 2 ? "project-showcase--reverse" : ""}`} key={project.title}>
+              <div className="project-showcase-copy">
+                <div className="project-kicker">
+                  <span>{project.number}</span>
+                  <span>{project.sceneLabel}</span>
                 </div>
-              ))}
-            </div>
-
-            {(fixd.href || fixd.secondaryHref) && (
-              <div className="project-actions">
-                {fixd.href && (
-                  <a className="button button-primary" href={fixd.href} target="_blank" rel="noreferrer">
-                    View project <FiArrowUpRight />
-                  </a>
-                )}
-                {fixd.secondaryHref && (
-                  <a className="text-link" href={fixd.secondaryHref} target="_blank" rel="noreferrer">
-                    View GitHub <FiArrowUpRight />
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
-
-          <ProjectImage project={fixd} featured />
-        </article>
-
-        <div className="secondary-project-grid">
-          {secondary.map((project) => (
-            <article className="secondary-project" key={project.title}>
-              <ProjectImage project={project} />
-              <div className="secondary-project-copy">
-                <span className="project-index">{project.number}</span>
                 <h3>{project.title}</h3>
                 <p className="project-subtitle">{project.subtitle}</p>
                 <p className="project-description">{project.description}</p>
-                <div className="technology-list technology-list--small">
+
+                <div className="technology-list">
                   {project.technologies.map((technology) => <span key={technology}>{technology}</span>)}
                 </div>
-                <a className="text-link" href={project.href} target="_blank" rel="noreferrer">
-                  View project <FiArrowUpRight />
-                </a>
+
+                {project.metrics && (
+                  <div className="project-signal-grid">
+                    {project.metrics.map((metric) => (
+                      <div className="project-signal" key={metric.label}>
+                        <strong>{metric.value}</strong>
+                        <span>{metric.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {project.href && (
+                  <a className="text-link" href={project.href} target="_blank" rel="noreferrer">
+                    Explore project <FiArrowUpRight />
+                  </a>
+                )}
               </div>
+              <MotionPreview project={project} index={index} />
             </article>
           ))}
         </div>
 
         <div className="more-work-heading">
           <div>
-            <p className="eyebrow">OTHER PROJECTS</p>
-            <h2>More projects and experiments.</h2>
+            <p className="eyebrow">SIDE QUESTS</p>
+            <h2>More things I&apos;ve built.</h2>
           </div>
           <a className="text-link" href="https://github.com/ViniciusBerger" target="_blank" rel="noreferrer">
             View GitHub <FiArrowUpRight />
@@ -104,7 +108,7 @@ export default function Projects() {
           {otherProjects.map((project) => (
             <a className="other-project-card" key={project.title} href={project.href} target="_blank" rel="noreferrer">
               <div className="other-project-thumb">
-                <Image src={project.image} alt="" fill sizes="(max-width: 760px) 92vw, 30vw" />
+                <Image src={project.image} alt="" fill sizes="(max-width: 760px) 80px, 96px" />
               </div>
               <div>
                 <h3>{project.title}</h3>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { label: "Home", href: "#home", id: "home" },
   { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Profile", href: "#profile", id: "profile" },
   { label: "Experience", href: "#experience", id: "experience" },
   { label: "Skills", href: "#skills", id: "skills" },
 ];
@@ -29,9 +30,7 @@ export default function Header() {
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <a key={item.id} href={item.href}>{item.label}</a>
-          ))}
+          {navItems.map((item) => <a key={item.id} href={item.href}>{item.label}</a>)}
           <a className="nav-contact" href="#contact">Contact</a>
         </nav>
 
@@ -42,8 +41,7 @@ export default function Header() {
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((open) => !open)}
         >
-          <span />
-          <span />
+          <span /><span />
         </button>
       </div>
 
