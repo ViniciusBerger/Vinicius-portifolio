@@ -33,6 +33,8 @@ export const featuredProjects = [
       { value: "Tested", label: "Automated quality checks" },
       { value: "Full-stack", label: "End-to-end ownership" },
     ],
+    motion: "drift-up",
+    sceneLabel: "SERVICE WORKFLOW",
   },
   {
     number: "02",
@@ -43,6 +45,8 @@ export const featuredProjects = [
     image: "/images/rentalFlow.png",
     href: "https://github.com/ViniciusBerger/RentalFlow",
     technologies: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Drizzle"],
+    motion: "drift-side",
+    sceneLabel: "OPERATIONS DASHBOARD",
   },
   {
     number: "03",
@@ -53,6 +57,67 @@ export const featuredProjects = [
     image: "/images/next-stop.png",
     href: "https://github.com/ViniciusBerger/next-stop/tree/main/apps/backend",
     technologies: ["React Native", "NestJS", "TypeScript", "MongoDB", "Firebase"],
+    motion: "float",
+    sceneLabel: "MOBILE PRODUCT",
+  },
+];
+
+export const achievements = [
+  {
+    id: "production-builder",
+    code: "01",
+    title: "Production Builder",
+    description: "Ships and maintains software used in real operational workflows.",
+    signal: "SHIP",
+  },
+  {
+    id: "backend-lead",
+    code: "02",
+    title: "Backend Lead",
+    description: "Led backend architecture and delivery for a six-person capstone team.",
+    signal: "LEAD",
+  },
+  {
+    id: "full-stack",
+    code: "03",
+    title: "Full-Stack Ownership",
+    description: "Works across interfaces, APIs, data, integrations, and deployment.",
+    signal: "BUILD",
+  },
+  {
+    id: "testing",
+    code: "04",
+    title: "Quality by Default",
+    description: "Uses automated testing and CI as part of the delivery workflow.",
+    signal: "TEST",
+  },
+  {
+    id: "systems",
+    code: "05",
+    title: "Systems Thinking",
+    description: "Designs around workflows, boundaries, maintainability, and clear ownership.",
+    signal: "DESIGN",
+  },
+];
+
+export const buildLog = [
+  {
+    year: "2024",
+    title: "Client-facing web work",
+    description: "Built and shipped web experiences while growing frontend and product-delivery fundamentals.",
+    tags: ["Web", "React", "Delivery"],
+  },
+  {
+    year: "2025",
+    title: "Backend depth + ML",
+    description: "Expanded into backend architecture, APIs, data systems, machine learning, and larger team projects.",
+    tags: ["NestJS", "MongoDB", "ML"],
+  },
+  {
+    year: "2026",
+    title: "Production systems",
+    description: "Moved deeper into full-stack ownership, production operations, testing, deployment, and system maintenance.",
+    tags: ["Go", "PostgreSQL", "CI/CD"],
   },
 ];
 
@@ -90,7 +155,7 @@ export const experience = [
     place: "FIXD",
     date: "2026 — Present",
     description:
-      "Building and operating a production service platform across backend, frontend, payments, scheduling, infrastructure, testing, and releases.",
+      "Building and operating a production service platform across backend, frontend, scheduling, integrations, testing, infrastructure, and releases.",
   },
   {
     role: "Backend Lead",
