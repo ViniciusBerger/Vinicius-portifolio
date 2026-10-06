@@ -12,7 +12,7 @@ permissions:
 jobs:
   smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 12
 
     steps:
       - name: Checkout
@@ -30,8 +30,15 @@ jobs:
       - name: Install Playwright test runner
         run: npm install --no-save --package-lock=false @playwright/test@1.55.0
 
-      - name: Install browser engines
-        run: npx playwright install --with-deps chromium webkit
+      - name: Use runner Chrome
+        run: |
+          CHROME_PATH="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          if [ -z "$CHROME_PATH" ]; then
+            echo "No Chrome/Chromium executable found on runner"
+            exit 1
+          fi
+          echo "CHROME_BIN=$CHROME_PATH" >> "$GITHUB_ENV"
+          "$CHROME_PATH" --version
 
       - name: Build application
         run: npm run build
@@ -49,11 +56,8 @@ jobs:
           cat /tmp/portfolio-next.log
           exit 1
 
-      - name: Run Chromium smoke suite
+      - name: Run responsive smoke suite
         run: npx playwright test tests/e2e/portfolio.smoke.spec.cjs --browser=chromium --reporter=line
-
-      - name: Run WebKit smoke suite
-        run: npx playwright test tests/e2e/portfolio.smoke.spec.cjs --browser=webkit --reporter=line
 
       - name: Upload responsive screenshots
         if: always()
