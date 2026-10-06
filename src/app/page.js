@@ -1,15 +1,21 @@
-import Main from "./components/main.jsx";
-import Header from "./components/header.jsx";
-import Projects from "./components/projects/projects.jsx";
-import Contact from "./components/contact.jsx"
+import Header from "./components/header";
+import Main from "./components/main";
+import Projects from "./components/projects/projects";
+import Experience from "./components/experience";
+import Skills from "./components/skills";
+import Contact from "./components/contact";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <div className="m-0 bg-[#1A1A1A]">
+    <main>
       <Header />
       <Main />
       <Projects />
-      <Contact/>
-    </div>
+      <Experience />
+      <Skills />
+      <Contact />
+      <Footer />
+    </main>
   );
 }

@@ -12,18 +12,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "VB portifolio",
-  description: "A simple portifolio to show my work",
+  title: "Vini Berger | Full-Stack Software Developer",
+  description:
+    "Portfolio of Vini Berger, a full-stack software developer building production web applications, APIs, integrations, and business systems.",
+  metadataBase: new URL("https://viniciusbergerportifolio.vercel.app"),
+  openGraph: {
+    title: "Vini Berger | Full-Stack Software Developer",
+    description: "Production web applications, APIs, integrations, and business systems.",
+    type: "website",
+    url: "/",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
   );
 }
