@@ -851,27 +851,36 @@ img {
 
 .skills-layout {
   display: grid;
-  grid-template-columns: minmax(250px, 0.55fr) minmax(0, 1.45fr);
-  gap: 72px;
+  grid-template-columns: minmax(360px, 0.7fr) minmax(0, 1.3fr);
+  gap: 56px;
+  align-items: start;
 }
 
 .skills-heading {
+  min-width: 0;
   align-self: start;
   position: sticky;
   top: 120px;
 }
 
 .skills-heading h2 {
+  max-width: 100%;
   margin-bottom: 26px;
+  font-size: clamp(3rem, 4vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
 }
 
 .skill-grid {
+  min-width: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
 .skill-card {
+  min-width: 0;
   padding: 26px;
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -898,9 +907,11 @@ img {
 
 .skill-card li {
   position: relative;
+  min-width: 0;
   padding-left: 14px;
   color: var(--muted);
   font-size: 0.83rem;
+  overflow-wrap: anywhere;
 }
 
 .skill-card li::before {
@@ -992,10 +1003,25 @@ img {
   font-size: 0.68rem;
 }
 
+@media (max-width: 1120px) {
+  .skills-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .skills-heading {
+    position: static;
+    max-width: 680px;
+  }
+
+  .skills-heading h2 {
+    max-width: 620px;
+  }
+}
+
 @media (max-width: 1040px) {
   .hero-layout,
   .featured-project,
-  .skills-layout,
   .contact-card {
     grid-template-columns: 1fr;
   }
@@ -1016,10 +1042,6 @@ img {
 
   .featured-project-image {
     min-height: 380px;
-  }
-
-  .skills-heading {
-    position: static;
   }
 
   .other-project-grid {
@@ -1178,7 +1200,6 @@ img {
   .system-layer-card {
     min-height: 66px;
   }
-
 
   .floating-card--top {
     right: 4%;
