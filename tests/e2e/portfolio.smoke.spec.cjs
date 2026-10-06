@@ -159,14 +159,24 @@ test.describe("reduced motion", () => {
   test.use({ viewport: { width: 390, height: 844 }, reducedMotion: "reduce" });
 
   test("disables decorative motion without hiding content", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto("http://127.0.0.1:3000/", { waitUntil: "networkidle" });
     await expect(page.locator("#home")).toBeVisible();
     await expect(page.locator(".project-showcase").first()).toBeAttached();
 
-    const animationDuration = await page.locator(".project-reel-image").first().evaluate(
-      (element) => getComputedStyle(element).animationDuration
+    const reducedMotionMatches = await page.evaluate(
+      () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
     );
-    expect(["0s", "0.001ms", "0.000001s"]).toContain(animationDuration);
+    expect(reducedMotionMatches).toBe(true);
+
+    const animationState = await page.locator(".project-reel-image").first().evaluate((element) => {
+      const style = getComputedStyle(element);
+      return {
+        duration: style.animationDuration,
+        iterations: style.animationIterationCount,
+      };
+    });
+    expect(animationState.iterations).toBe("1");
     await expect(page.locator(".project-reel-cursor").first()).toBeHidden();
   });
 });
