@@ -107,6 +107,18 @@ for (const viewport of viewports) {
 
       const projectCards = page.locator(".project-showcase");
       await expect(projectCards).toHaveCount(3);
+
+      if (viewport.width <= 820) {
+        const sideQuestColumns = await page.locator(".other-project-grid").evaluate(
+          (element) => getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
+        );
+        expect(sideQuestColumns, "side quests should stack on mobile/tablet").toBe(1);
+
+        const firstSideQuest = await page.locator(".other-project-card").first().boundingBox();
+        if (firstSideQuest) {
+          expect(firstSideQuest.width).toBeGreaterThan(viewport.width * 0.75);
+        }
+      }
       for (let index = 0; index < 3; index += 1) {
         const card = projectCards.nth(index);
         await card.scrollIntoViewIfNeeded();
