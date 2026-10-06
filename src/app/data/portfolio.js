@@ -1,18 +1,37 @@
+export const heroProfile = {
+  eyebrow: "FULL-STACK SOFTWARE DEVELOPER",
+  name: "Vini Berger",
+  lead:
+    "I build production-ready web applications, APIs, integrations, and business systems with a focus on clean architecture, reliability, and maintainability.",
+  technologies: ["React", "TypeScript", "Go", "Node.js", "PostgreSQL"],
+  overview: {
+    eyebrow: "SYSTEM OVERVIEW",
+    title: "From interface to infrastructure.",
+    description:
+      "Product-focused development across application layers, with testing and delivery built into the workflow.",
+    layers: [
+      { icon: "frontend", label: "Frontend", value: "React / Next.js" },
+      { icon: "services", label: "APIs & services", value: "Go / Node.js" },
+      { icon: "data", label: "Data", value: "PostgreSQL / MongoDB" },
+      { icon: "delivery", label: "Delivery", value: "CI/CD / Docker" },
+    ],
+    signals: ["Production-minded", "Automated testing", "Maintainable"],
+  },
+};
+
 export const featuredProjects = [
   {
     number: "01",
     title: "FIXD",
-    subtitle: "Mobile bicycle maintenance platform",
+    subtitle: "Service operations platform",
     description:
-      "A production platform for scheduling mobile maintenance, payments, finance, client operations, and service workflows. Built around a Go API with a React and TypeScript frontend.",
+      "A production full-stack application supporting customer booking and day-to-day business workflows. I own development across frontend, backend, testing, integrations, and releases.",
     image: "/images/fixd.png",
-    href: "https://www.fixdbike.com/",
-    secondaryHref: "https://github.com/ViniciusBerger",
-    technologies: ["Go", "React", "TypeScript", "PostgreSQL", "Redis", "Mercado Pago"],
+    technologies: ["Go", "React", "TypeScript", "PostgreSQL"],
     metrics: [
-      { value: "60+", label: "REST API routes" },
-      { value: "~95%", label: "Backend test coverage" },
-      { value: "Live", label: "Production system" },
+      { value: "Production", label: "Real-world application" },
+      { value: "Tested", label: "Automated quality checks" },
+      { value: "Full-stack", label: "End-to-end ownership" },
     ],
   },
   {
