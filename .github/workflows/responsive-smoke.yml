@@ -1,0 +1,68 @@
+name: Responsive UI Smoke
+
+on:
+  push:
+    branches:
+      - mobile-responsive-smoke
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Install Playwright test runner
+        run: npm install --no-save --package-lock=false @playwright/test@1.55.0
+
+      - name: Install browser engines
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: Build application
+        run: npm run build
+
+      - name: Start production server
+        run: |
+          nohup npm start -- -H 127.0.0.1 > /tmp/portfolio-next.log 2>&1 &
+          echo $! > /tmp/portfolio-next.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000 >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/portfolio-next.log
+          exit 1
+
+      - name: Run Chromium smoke suite
+        run: npx playwright test tests/e2e/portfolio.smoke.spec.cjs --browser=chromium --reporter=line
+
+      - name: Run WebKit smoke suite
+        run: npx playwright test tests/e2e/portfolio.smoke.spec.cjs --browser=webkit --reporter=line
+
+      - name: Upload responsive screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: responsive-smoke-screenshots
+          path: test-results/
+          if-no-files-found: ignore
+
+      - name: Show server log on failure
+        if: failure()
+        run: cat /tmp/portfolio-next.log
