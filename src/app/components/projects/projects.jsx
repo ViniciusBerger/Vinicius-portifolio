@@ -1,46 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { FiArrowUpRight, FiPlay } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
+import ProjectReel from "./project-reel";
 import { featuredProjects, otherProjects } from "../../data/portfolio";
-
-function MotionPreview({ project, index }) {
-  return (
-    <div className={`project-reel project-reel--${project.motion}`}>
-      <div className="project-reel-topbar">
-        <span /><span /><span />
-        <small>{project.sceneLabel}</small>
-      </div>
-      <div className="project-reel-stage">
-        {project.video ? (
-          <video
-            className="project-reel-video"
-            src={project.video}
-            poster={project.image}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
-        ) : (
-          <Image
-            className="project-reel-image"
-            src={project.image}
-            alt={`${project.title} interface preview`}
-            fill
-            sizes="(max-width: 920px) 94vw, 58vw"
-            priority={index === 0}
-          />
-        )}
-        <div className="project-reel-scan" aria-hidden="true" />
-        <div className="project-reel-cursor" aria-hidden="true" />
-        <div className="project-reel-live"><FiPlay aria-hidden="true" /> live preview</div>
-      </div>
-      <div className="project-reel-progress"><span /></div>
-    </div>
-  );
-}
 
 export default function Projects() {
   return (
@@ -52,7 +15,7 @@ export default function Projects() {
             <h2>Projects that feel<br />alive.</h2>
           </div>
           <p>
-            Product work is easier to understand when you can see it in motion. These previews animate the interfaces now and are ready to use real screen recordings when they are added later.
+            Product work is easier to understand when you can see it in motion. Watch real product workflows from FIXD and RentalFlow, plus a clearly labeled Next Stop UI concept recreation.
           </p>
         </div>
 
@@ -89,7 +52,7 @@ export default function Projects() {
                   </a>
                 )}
               </div>
-              <MotionPreview project={project} index={index} />
+              <ProjectReel project={project} />
             </article>
           ))}
         </div>

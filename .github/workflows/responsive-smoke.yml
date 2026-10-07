@@ -3,7 +3,11 @@ name: Responsive UI Smoke
 on:
   push:
     branches:
-      - mobile-responsive-smoke
+      - main
+      - feature/project-video-reels
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:

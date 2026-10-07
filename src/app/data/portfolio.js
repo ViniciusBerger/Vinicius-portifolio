@@ -27,6 +27,16 @@ export const featuredProjects = [
     description:
       "A production full-stack application supporting customer booking and day-to-day business workflows. I own development across frontend, backend, testing, integrations, and releases.",
     image: "/images/fixd.png",
+    poster: "/images/fixd-poster.webp",
+    video: "/videos/fixd-preview.mp4",
+    captions: [
+      { at: 0, title: "Bike maintenance, made easier.", detail: "Service, right where you are." },
+      { at: 1.8, title: "Find the right service.", detail: "Choose what your bike needs." },
+      { at: 3.8, title: "At your doorstep.", detail: "Convenience starts with your location." },
+      { at: 5.6, title: "Book around your day.", detail: "Scheduling made straightforward." },
+      { at: 8.4, title: "Your service, your way.", detail: "Review your request in one place." },
+      { at: 10.6, title: "FIXD. Back to riding.", detail: "Less hassle, more time on the road." },
+    ],
     technologies: ["Go", "React", "TypeScript", "PostgreSQL"],
     metrics: [
       { value: "Production", label: "Real-world application" },
@@ -43,6 +53,14 @@ export const featuredProjects = [
     description:
       "Responsive rental operations software with booking management, financial views, protected admin flows, conflict prevention, and a tested backend API.",
     image: "/images/rentalFlow.png",
+    poster: "/images/rentalflow-poster.webp",
+    video: "/videos/rentalflow-preview.mp4",
+    captions: [
+      { at: 0, title: "Rental management. Simplified.", detail: "Keep every booking organized." },
+      { at: 4.3, title: "Create bookings effortlessly.", detail: "Make room for your next guest." },
+      { at: 7.1, title: "Stay in control.", detail: "Update every stay in a few clicks." },
+      { at: 9.8, title: "Your performance, at a glance.", detail: "Bookings and finances in one place." },
+    ],
     href: "https://github.com/ViniciusBerger/RentalFlow",
     technologies: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Drizzle"],
     motion: "drift-side",
@@ -55,6 +73,14 @@ export const featuredProjects = [
     description:
       "A team-built social discovery application with a NestJS backend, authentication and authorization, Google integrations, push notifications, and documented APIs.",
     image: "/images/next-stop.png",
+    poster: "/images/nextstop-concept-poster.webp",
+    video: "/videos/nextstop-concept-preview.mp4",
+    isRecreation: true,
+    captions: [
+      { at: 0, title: "Your next adventure starts here.", detail: "Find places worth exploring." },
+      { at: 4, title: "Discover what's nearby.", detail: "Explore new spots around you." },
+      { at: 8, title: "Better adventures, together.", detail: "Connect through events and places." },
+    ],
     href: "https://github.com/ViniciusBerger/next-stop/tree/main/apps/backend",
     technologies: ["React Native", "NestJS", "TypeScript", "MongoDB", "Firebase"],
     motion: "float",

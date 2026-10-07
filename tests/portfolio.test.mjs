@@ -1,10 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 
 const projectData = await readFile(new URL("../src/app/data/portfolio.js", import.meta.url), "utf8");
 const hero = await readFile(new URL("../src/app/components/main.jsx", import.meta.url), "utf8");
 const projects = await readFile(new URL("../src/app/components/projects/projects.jsx", import.meta.url), "utf8");
+const reel = await readFile(new URL("../src/app/components/projects/project-reel.jsx", import.meta.url), "utf8");
 const profile = await readFile(new URL("../src/app/components/engineer-profile.jsx", import.meta.url), "utf8");
 const page = await readFile(new URL("../src/app/page.js", import.meta.url), "utf8");
 const interactiveCss = await readFile(new URL("../src/app/interactive.css", import.meta.url), "utf8");
@@ -40,10 +41,34 @@ test("FIXD public presentation avoids internal implementation metrics", () => {
   assert.match(fixdPublicData, /End-to-end ownership/);
 });
 
-test("project reels support real video with animated image fallbacks", () => {
-  assert.match(projects, /project\.video/);
-  assert.match(projects, /<video/);
-  assert.match(projects, /project-reel-image/);
+test("featured project reels support video, poster fallback and accessible captions", () => {
+  assert.match(projects, /<ProjectReel project=/);
+  assert.match(reel, /project\.video/);
+  assert.match(reel, /<video/);
+  assert.match(reel, /video\/mp4/);
+  assert.match(reel, /project-reel-image/);
+  assert.match(reel, /onTimeUpdate/);
+  assert.match(reel, /project-reel-mobile-caption/);
+  assert.match(reel, /visibilitychange/);
+  assert.match(reel, /prefers-reduced-motion/);
+});
+
+test("all three prepared videos and posters exist, with Next Stop labeled as a concept", async () => {
+  const assets = [
+    ["fixd-preview.mp4", "fixd-poster.webp"],
+    ["rentalflow-preview.mp4", "rentalflow-poster.webp"],
+    ["nextstop-concept-preview.mp4", "nextstop-concept-poster.webp"],
+  ];
+  for (const [video, poster] of assets) {
+    const videoStats = await stat(new URL("../public/videos/" + video, import.meta.url));
+    const posterStats = await stat(new URL("../public/images/" + poster, import.meta.url));
+    assert.ok(videoStats.size > 50000, video + " should contain real footage");
+    assert.ok(posterStats.size > 1000, poster + " should contain an image");
+    assert.ok(projectData.includes(video), video + " should be referenced in portfolio.js");
+    assert.ok(projectData.includes(poster), poster + " should be referenced in portfolio.js");
+  }
+  assert.match(projectData, /isRecreation: true/);
+  assert.match(reel, /UI concept recreation/);
 });
 
 test("gamified engineer profile is part of the page", () => {
