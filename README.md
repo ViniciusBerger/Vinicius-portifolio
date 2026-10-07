@@ -37,7 +37,7 @@ The flagship projects are presented as large product reels:
 - **RentalFlow** — property operations platform
 - **Next Stop** — social discovery application and SAIT capstone
 
-The current repository uses animated screenshot fallbacks. The project-reel component also supports real muted looping `MP4`/`WebM` recordings through an optional `video` field in the project data, so future screen recordings can be added without changing component architecture.
+All three flagship projects now have optimized, silent MP4 reels and static WebP posters. FIXD and RentalFlow use edited recordings of the original products, while Next Stop uses a clearly labeled UI concept recreation based on the project's documented features. Product-story headlines change in sync with each clip.
 
 ### Engineer profile
 
@@ -95,25 +95,37 @@ tests/
 
 ## Project previews
 
-Each featured project supports two preview modes.
+The three featured project reels use reusable playback logic in `src/app/components/projects/project-reel.jsx` and content/timing data in `src/app/data/portfolio.js`.
 
-### Animated image fallback
+| Project | Media type | Public file |
+| --- | --- | --- |
+| FIXD | Edited customer-facing product recording | `public/videos/fixd-preview.mp4` |
+| RentalFlow | Edited product recording, with loading periods and sensitive data removed | `public/videos/rentalflow-preview.mp4` |
+| Next Stop | Recreated UI concept, **not original app footage** | `public/videos/nextstop-concept-preview.mp4` |
 
-The current assets use CSS-driven pan, scan, cursor, and progress effects to make static screenshots feel active without pretending they are real screen recordings.
+Matching WebP posters live under `public/images/`. Original recordings, source archives, and any credentials are intentionally **not** committed.
 
-### Real screen recording
-
-A project can opt into real video by adding a public media path:
+A project entry declares its media and synchronized promotional copy:
 
 ```js
 {
-  title: "Example",
-  image: "/images/example.png",
-  video: "/videos/example.webm"
+  title: "RentalFlow",
+  poster: "/images/rentalflow-poster.webp",
+  video: "/videos/rentalflow-preview.mp4",
+  captions: [
+    { at: 0, title: "Rental management. Simplified.", detail: "Keep every booking organized." },
+    { at: 4.3, title: "Create bookings effortlessly.", detail: "Make room for your next guest." },
+  ],
 }
 ```
 
-The component automatically uses the video when provided and keeps the screenshot as its poster/fallback.
+The player includes a muted inline video, intersection-based pause/play, a manual play/pause control, video-load fallback to its poster image, and captions synchronized using the video's playback time. It pauses when the page is hidden and respects reduced-motion and data-saver preferences by not autoplaying. Visitors can still choose to play manually.
+
+On narrow phones, marketing copy moves **under** the video, rather than covering the product screen. Next Stop's conceptual nature is labeled visibly on the reel and in its surrounding description.
+
+## Preview validation
+
+`npm run ci` validates media paths, basic file integrity, public content rules, and the production build. The Responsive UI Smoke GitHub Actions workflow tests four viewport sizes, video asset serving, project headings, interactions, and reduced-motion behavior against a built Next.js production server. Screenshots are available as GitHub Actions artifacts.
 
 ## Tech stack
 
@@ -167,7 +179,7 @@ The site has explicit layout transitions for large desktop, small desktop/tablet
 
 Notable behavior includes:
 
-- project reels become stacked cards on smaller screens
+- project reels become stacked cards on smaller screens, with captions below the video on mobile
 - the sticky engineer profile becomes static
 - achievements collapse to one column
 - build-log entries simplify into a two-column timeline

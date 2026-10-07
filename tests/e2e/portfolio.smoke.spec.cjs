@@ -108,6 +108,25 @@ for (const viewport of viewports) {
       const projectCards = page.locator(".project-showcase");
       await expect(projectCards).toHaveCount(3);
 
+      for (let index = 0; index < 3; index += 1) {
+        const card = projectCards.nth(index);
+        await expect(card.locator("video")).toHaveCount(1);
+        await expect(card.locator(".project-reel-image")).toHaveCount(1);
+        await expect(card.locator(".project-reel-playback")).toHaveCount(1);
+        const videoSrc = await card.locator("video source").getAttribute("src");
+        expect(videoSrc).toMatch(/^\/videos\/.+\.mp4$/);
+        const response = await page.request.get("http://127.0.0.1:3000" + videoSrc);
+        expect(response.status(), videoSrc + " should load").toBe(200);
+        expect(response.headers()["content-type"] || "").toContain("video/mp4");
+        await expect(card.locator(".project-reel-caption strong")).toHaveCount(1);
+        if (viewport.width <= 600) {
+          await expect(card.locator(".project-reel-mobile-caption")).toBeVisible();
+          await expect(card.locator(".project-reel-caption")).toBeHidden();
+        }
+      }
+      await expect(projectCards.nth(2).locator(".project-reel-concept")).toContainText("concept recreation");
+
+
       if (viewport.width <= 820) {
         const sideQuestColumns = await page.locator(".other-project-grid").evaluate(
           (element) => getComputedStyle(element).gridTemplateColumns.split(" ").filter(Boolean).length
@@ -190,5 +209,11 @@ test.describe("reduced motion", () => {
     });
     expect(animationState.iterations).toBe("1");
     await expect(page.locator(".project-reel-cursor").first()).toBeHidden();
+    const firstReel = page.locator(".project-reel").first();
+    await firstReel.scrollIntoViewIfNeeded();
+    await expect(firstReel.locator("video")).toHaveCount(1);
+    await page.waitForTimeout(400);
+    expect(await firstReel.locator("video").evaluate((video) => video.paused)).toBe(true);
+
   });
 });
