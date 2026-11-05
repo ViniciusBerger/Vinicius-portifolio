@@ -300,7 +300,10 @@ img {
   position: relative;
   min-height: 535px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 16px;
 }
 
 .hero-visual::before {
@@ -548,8 +551,11 @@ img {
 }
 
 .floating-card--bottom {
-  left: 1%;
-  bottom: 8%;
+  position: relative;
+  left: auto;
+  bottom: auto;
+  align-self: flex-start;
+  margin-left: 1%;
   display: block;
 }
 
@@ -1204,10 +1210,6 @@ img {
   .floating-card--top {
     right: 4%;
     top: 2%;
-  }
-
-  .floating-card--bottom {
-    bottom: 0;
   }
 
   .featured-project {
