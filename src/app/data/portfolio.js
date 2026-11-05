@@ -99,7 +99,7 @@ export const featuredProjects = [
     metrics: [
       { value: "80+", label: "REST endpoints" },
       { value: "350+", label: "Automated Jest tests" },
-      { value: "6", label: "Agile teammates" },
+      { value: "6", label: "Agile team members" },
     ],
     motion: "float",
     sceneLabel: "MOBILE PRODUCT",
