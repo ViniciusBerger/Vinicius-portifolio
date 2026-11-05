@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FiArrowUpRight } from "react-icons/fi";
+import { FiArrowUpRight, FiBarChart2 } from "react-icons/fi";
 import ProjectReel from "./project-reel";
 import { featuredProjects, otherProjects } from "../../data/portfolio";
 
@@ -29,6 +29,7 @@ export default function Projects() {
                 </div>
                 <h3>{project.title}</h3>
                 <p className="project-subtitle">{project.subtitle}</p>
+                {project.period && <p className="project-period">{project.period}</p>}
                 <p className="project-description">{project.description}</p>
 
                 <div className="technology-list">
@@ -68,7 +69,21 @@ export default function Projects() {
         </div>
 
         <div className="other-project-grid">
-          {otherProjects.map((project) => (
+          {otherProjects.map((project) => project.kind === "analysis" ? (
+            <article className="other-project-card other-project-card--analysis" key={project.title}>
+              <div className="other-project-thumb other-project-thumb--analysis">
+                <FiBarChart2 aria-hidden="true" />
+              </div>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <p className="other-project-metric">
+                  <strong>{project.metric}</strong>
+                  <span>{project.metricLabel}</span>
+                </p>
+              </div>
+            </article>
+          ) : (
             <a className="other-project-card" key={project.title} href={project.href} target="_blank" rel="noreferrer">
               <div className="other-project-thumb">
                 <Image src={project.image} alt="" fill sizes="(max-width: 760px) 80px, 96px" />
