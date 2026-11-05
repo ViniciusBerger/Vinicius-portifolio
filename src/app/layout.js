@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Vini Berger | Full-Stack Software Developer",
+  title: "Vini Berger | Software Developer — Backend & Full-Stack",
   description:
-    "Portfolio of Vini Berger, a full-stack software developer building production web applications, APIs, integrations, and business systems.",
+    "Portfolio of Vini Berger, a Calgary software developer focused on backend APIs and full-stack applications using Go, TypeScript, React, NestJS, PostgreSQL, testing, and CI/CD.",
   metadataBase: new URL("https://viniciusbergerportifolio.vercel.app"),
   openGraph: {
-    title: "Vini Berger | Full-Stack Software Developer",
-    description: "Production web applications, APIs, integrations, and business systems.",
+    title: "Vini Berger | Software Developer — Backend & Full-Stack",
+    description: "Backend APIs, full-stack applications, secure business workflows, and tested delivery.",
     type: "website",
     url: "/",
   },
