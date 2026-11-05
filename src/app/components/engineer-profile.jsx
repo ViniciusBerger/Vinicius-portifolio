@@ -22,7 +22,7 @@ export default function EngineerProfile() {
             <div>
               <small>PLAYER 01</small>
               <h2>Vini Berger</h2>
-              <p>Full-Stack Software Developer</p>
+              <p>Software Developer · Backend &amp; Full-Stack</p>
             </div>
           </div>
 

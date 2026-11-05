@@ -7,6 +7,7 @@ const hero = await readFile(new URL("../src/app/components/main.jsx", import.met
 const projects = await readFile(new URL("../src/app/components/projects/projects.jsx", import.meta.url), "utf8");
 const reel = await readFile(new URL("../src/app/components/projects/project-reel.jsx", import.meta.url), "utf8");
 const profile = await readFile(new URL("../src/app/components/engineer-profile.jsx", import.meta.url), "utf8");
+const experienceSection = await readFile(new URL("../src/app/components/experience.jsx", import.meta.url), "utf8");
 const page = await readFile(new URL("../src/app/page.js", import.meta.url), "utf8");
 const interactiveCss = await readFile(new URL("../src/app/interactive.css", import.meta.url), "utf8");
 const packageJson = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
@@ -94,4 +95,37 @@ test("CI script runs lint, tests, and production build", () => {
 test("Vercel deployments run the CI command", async () => {
   const vercel = JSON.parse(await readFile(new URL("../vercel.json", import.meta.url), "utf8"));
   assert.equal(vercel.buildCommand, "npm run ci");
+});
+
+
+test("experience reflects the current master resume dates and accurate employment type", () => {
+  assert.match(projectData, /role: "IT Support & Software Maintenance"/);
+  assert.match(projectData, /StarPro Doors Ca\. · Calgary, AB/);
+  assert.match(projectData, /Jun 2026 — Present/);
+  assert.match(projectData, /FIXD · Self-employed/);
+  assert.match(projectData, /Feb 2026 — Aug 2026/);
+  assert.doesNotMatch(projectData, /date: "2026 — Present"/);
+  assert.match(projectData, /Backend Developer & Project Lead/);
+});
+
+test("featured projects show accurate technologies and public evidence", () => {
+  const rental = projectData.slice(projectData.indexOf('title: "RentalFlow"'), projectData.indexOf('title: "Next Stop"'));
+  const nextStop = projectData.slice(projectData.indexOf('title: "Next Stop"'), projectData.indexOf('export const achievements'));
+  assert.match(rental, /technologies: \["React", "TypeScript", "NestJS", "PostgreSQL", "Drizzle ORM"\]/);
+  assert.doesNotMatch(rental, /Next\.js/);
+  assert.match(rental, /Automated backend tests/);
+  assert.match(rental, /REST endpoints/);
+  assert.match(nextStop, /350\+/);
+  assert.match(nextStop, /80\+/);
+  assert.match(projects, /project\.period/);
+});
+
+test("education is visible and machine-learning work has a measured, non-deployment claim", () => {
+  assert.match(experienceSection, /Diploma in Software Development/);
+  assert.match(experienceSection, /Southern Alberta Institute of Technology \(SAIT\)/);
+  const ml = projectData.slice(projectData.indexOf('title: "Airline Ticket Price Prediction"'), projectData.indexOf('title: "IMOB"'));
+  assert.match(ml, /R² 0\.9665/);
+  assert.match(ml, /test-set result/);
+  assert.doesNotMatch(ml, /href:/);
+  assert.match(projects, /project\.kind === "analysis"/);
 });
