@@ -1,3 +1,4 @@
+import { FiBookOpen } from "react-icons/fi";
 import { experience } from "../data/portfolio";
 
 export default function Experience() {
@@ -27,6 +28,15 @@ export default function Experience() {
               </div>
             </article>
           ))}
+        </div>
+        <div className="education-summary" aria-label="Education">
+          <div className="education-summary-icon"><FiBookOpen aria-hidden="true" /></div>
+          <div className="education-summary-copy">
+            <span className="education-summary-kicker">EDUCATION · 2024–2026</span>
+            <h3>Diploma in Software Development</h3>
+            <p>Southern Alberta Institute of Technology (SAIT) · Calgary, AB</p>
+          </div>
+          <span className="education-summary-status">Completed</span>
         </div>
       </div>
     </section>
