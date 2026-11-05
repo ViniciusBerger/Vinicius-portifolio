@@ -1,17 +1,17 @@
 export const heroProfile = {
-  eyebrow: "FULL-STACK SOFTWARE DEVELOPER",
+  eyebrow: "SOFTWARE DEVELOPER · BACKEND & FULL-STACK",
   name: "Vini Berger",
   lead:
-    "I build production-ready web applications, APIs, integrations, and business systems with a focus on clean architecture, reliability, and maintainability.",
-  technologies: ["React", "TypeScript", "Go", "Node.js", "PostgreSQL"],
+    "I build full-stack applications and backend services for real business workflows, combining secure APIs, data-driven features, automated tests, and reliable delivery.",
+  technologies: ["TypeScript", "React", "Go", "NestJS", "PostgreSQL"],
   overview: {
     eyebrow: "SYSTEM OVERVIEW",
     title: "From interface to infrastructure.",
     description:
       "Product-focused development across application layers, with testing and delivery built into the workflow.",
     layers: [
-      { icon: "frontend", label: "Frontend", value: "React / Next.js" },
-      { icon: "services", label: "APIs & services", value: "Go / Node.js" },
+      { icon: "frontend", label: "Frontend", value: "React / TypeScript" },
+      { icon: "services", label: "APIs & services", value: "Go / NestJS" },
       { icon: "data", label: "Data", value: "PostgreSQL / MongoDB" },
       { icon: "delivery", label: "Delivery", value: "CI/CD / Docker" },
     ],
@@ -24,8 +24,9 @@ export const featuredProjects = [
     number: "01",
     title: "FIXD",
     subtitle: "Service operations platform",
+    period: "Feb–Aug 2026 · Self-employed",
     description:
-      "A production full-stack application supporting customer booking and day-to-day business workflows. I own development across frontend, backend, testing, integrations, and releases.",
+      "Designed and developed a full-stack maintenance service platform with booking and scheduling, role-specific workflows, payment integrations, and operational dashboards. Built React interfaces, Go APIs, PostgreSQL data flows, tests, and CI/CD.",
     image: "/images/fixd.png",
     poster: "/images/fixd-poster.webp",
     video: "/videos/fixd-preview.mp4",
@@ -39,7 +40,7 @@ export const featuredProjects = [
     ],
     technologies: ["Go", "React", "TypeScript", "PostgreSQL"],
     metrics: [
-      { value: "Production", label: "Real-world application" },
+      { value: "3 user roles", label: "Customer · mechanic · admin" },
       { value: "Tested", label: "Automated quality checks" },
       { value: "Full-stack", label: "End-to-end ownership" },
     ],
@@ -50,8 +51,9 @@ export const featuredProjects = [
     number: "02",
     title: "RentalFlow",
     subtitle: "Property operations platform",
+    period: "Dec 2025–Feb 2026 · Independent project",
     description:
-      "Responsive rental operations software with booking management, financial views, protected admin flows, conflict prevention, and a tested backend API.",
+      "Built a responsive internal platform for a small rental business, giving three administrators a shared view of bookings across three to four properties, conflict prevention, and financial reporting through a secured NestJS API.",
     image: "/images/rentalFlow.png",
     poster: "/images/rentalflow-poster.webp",
     video: "/videos/rentalflow-preview.mp4",
@@ -67,16 +69,22 @@ export const featuredProjects = [
       { at: 46.1, title: "A unified booking calendar.", detail: "Property changes carry through to the calendar." },
     ],
     href: "https://github.com/ViniciusBerger/RentalFlow",
-    technologies: ["Next.js", "TypeScript", "NestJS", "PostgreSQL", "Drizzle"],
+    technologies: ["React", "TypeScript", "NestJS", "PostgreSQL", "Drizzle ORM"],
+    metrics: [
+      { value: "17", label: "REST endpoints" },
+      { value: "82", label: "Automated backend tests" },
+      { value: "3–4", label: "Rental units managed" },
+    ],
     motion: "drift-side",
     sceneLabel: "OPERATIONS DASHBOARD",
   },
   {
     number: "03",
     title: "Next Stop",
-    subtitle: "Social discovery platform",
+    subtitle: "Social discovery platform · SAIT capstone",
+    period: "Sep 2025–Apr 2026 · Six-person Agile team",
     description:
-      "A team-built social discovery application with a NestJS backend, authentication and authorization, Google integrations, push notifications, and documented APIs.",
+      "Led backend architecture and technical coordination for a social discovery app. Built secure NestJS APIs, Google Places/Maps and push-notification integrations, and reviewed team contributions before delivery one week early.",
     image: "/images/next-stop.png",
     poster: "/images/nextstop-concept-poster.webp",
     video: "/videos/nextstop-concept-preview.mp4",
@@ -88,6 +96,11 @@ export const featuredProjects = [
     ],
     href: "https://github.com/ViniciusBerger/next-stop/tree/main/apps/backend",
     technologies: ["React Native", "NestJS", "TypeScript", "MongoDB", "Firebase"],
+    metrics: [
+      { value: "80+", label: "REST endpoints" },
+      { value: "350+", label: "Automated Jest tests" },
+      { value: "6", label: "Agile teammates" },
+    ],
     motion: "float",
     sceneLabel: "MOBILE PRODUCT",
   },
@@ -154,6 +167,13 @@ export const buildLog = [
 
 export const otherProjects = [
   {
+    title: "Airline Ticket Price Prediction",
+    description: "Neural-network models trained on ~300,000 flight records",
+    kind: "analysis",
+    metric: "R² 0.9665",
+    metricLabel: "Best test-set result · MAE ≈ 2,405",
+  },
+  {
     title: "IMOB",
     description: "Real estate operations platform",
     image: "/images/imob.jpg",
@@ -175,25 +195,25 @@ export const otherProjects = [
 
 export const experience = [
   {
-    role: "Software Developer",
-    place: "Internal business systems",
-    date: "2026 — Present",
+    role: "IT Support & Software Maintenance",
+    place: "StarPro Doors Ca. · Calgary, AB",
+    date: "Jun 2026 — Present",
     description:
-      "Maintaining and improving business software, investigating issues, shipping changes, and supporting day-to-day operational workflows.",
+      "Maintain the company's internal business system, diagnose software defects, implement targeted maintenance fixes, and verify affected workflows while also supporting logistics and general operations in a small team.",
   },
   {
     role: "Full-Stack Developer",
-    place: "FIXD",
-    date: "2026 — Present",
+    place: "FIXD · Self-employed",
+    date: "Feb 2026 — Aug 2026",
     description:
-      "Building and operating a production service platform across backend, frontend, scheduling, integrations, testing, infrastructure, and releases.",
+      "Designed and developed a service-booking and operations platform across React, Go, PostgreSQL, authenticated workflows, payments, automated testing, and deployment.",
   },
   {
-    role: "Backend Lead",
+    role: "Backend Developer & Project Lead",
     place: "Next Stop · SAIT Capstone",
-    date: "2025 — 2026",
+    date: "Sep 2025 — Apr 2026",
     description:
-      "Led backend architecture and delivery for a six-person Agile team, including API design, security, integrations, testing, and technical coordination.",
+      "Led backend architecture and technical coordination for a six-person Agile team, implementing secure APIs and integrations, reviewing code, and supporting early delivery.",
   },
 ];
 
